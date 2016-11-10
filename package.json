@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "angular-cli": {},
+  "author": {
+    "email": "wolfson@bracketedrebels.com",
+    "name": "wolfson"
+  },
   "scripts": {
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
