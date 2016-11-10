@@ -1,0 +1,29 @@
+@import '~sassline/assets/sass/style';
+
+$bodytype: (
+  font-family: "'Open Sans Condensed', sans-serif",
+  light: 300,
+  bold: 700,
+  italic: italic,
+  cap-height: 0.75
+);
+
+h1 {
+  font-weight: bold;
+  @include sassline($fontsize: 28, $font: $bodytype, $lineheight: 2, $below: 1, $breakpoint: 0)
+}
+
+h2 {
+  font-weight: bold;
+  @include sassline($fontsize: 20, $font: $bodytype, $lineheight: 2, $below: 1, $breakpoint: 0)
+}
+
+h3 {
+  font-weight: bold;
+  @include sassline($fontsize: 16, $font: $bodytype, $lineheight: 2, $below: 1, $breakpoint: 0)
+}
+
+p {
+  font-weight: lighter;
+  @include sassline($fontsize: 14, $font: $bodytype, $lineheight: 1, $below: 1, $breakpoint: 0)
+}
