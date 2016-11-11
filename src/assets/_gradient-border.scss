@@ -1,0 +1,39 @@
+@import '~bourbon/app/assets/stylesheets/bourbon';
+
+@mixin gradient-border($from, $to, $width, $location: 'left') {
+  $offset: -$width;
+  & {
+    position: relative;
+    z-index: 0;
+  }
+  &:before {
+    content: "";
+    border-radius: $width * .5;
+    z-index: -1;
+  }
+  @if ($location == 'top') {
+    &:before {
+      @include linear-gradient(to right, $from, $to);
+      @include position(absolute, $offset 0 null 0);
+      @include size(auto $width);
+    }
+  } @elseif ($location == 'right') {
+    &:before {
+      @include linear-gradient(to bottom, $from, $to);
+      @include position(absolute, $offset 0 $offset null);
+      @include size($width auto);
+    }
+  } @elseif ($location == 'bottom') {
+    &:before {
+      @include linear-gradient(to left, $from, $to);
+      @include position(absolute, null 0 $offset 0);
+      @include size(auto $width);
+    }
+  } @elseif ($location == 'left') {
+    &:before {
+      @include linear-gradient(to top, $from, $to);
+      @include position(absolute, $offset null $offset 0);
+      @include size($width auto);
+    }
+  }
+}
