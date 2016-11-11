@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'impex',
+  selector: 'airadraft',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
