@@ -9,23 +9,23 @@ $bodytype: (
   cap-height: 0.75
 );
 
-$primcollor: #f0f0f0;
-$color: darken($color: $primcollor, $amount: 40);
+$primcolor: #f0f0f0;
+$color: darken($color: $primcolor, $amount: 40);
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
-  color: $primcollor;
+  color: $primcolor;
   letter-spacing: 1pt;
 }
 
 h1 {
   @include sassline($fontsize: 28, $font: $bodytype, $lineheight: 2, $below: 2, $breakpoint: 0);
-  @include gradient-border(transparent, $color, 1px, 'bottom');
+  @include gradient-border($primcolor, transparent, 1px, 'bottom');
 }
 
 h2 {
   @include sassline($fontsize: 25, $font: $bodytype, $lineheight: 2, $below: 2, $breakpoint: 0);
-  @include gradient-border(transparent, $color, 1px, 'bottom');
+  @include gradient-border($primcolor, transparent, 1px, 'bottom');
 }
 
 h3 { @include sassline($fontsize: 22, $font: $bodytype, $lineheight: 2, $below: 1, $breakpoint: 0) }
@@ -34,13 +34,13 @@ h5 { @include sassline($fontsize: 16, $font: $bodytype, $lineheight: 2, $below: 
 
 h6 {
   @include sassline($fontsize: 14, $font: $bodytype, $lineheight: 2, $below: 1, $breakpoint: 0);
-  color: darken($color: $primcollor, $amount: 10);
+  color: darken($color: $primcolor, $amount: 10);
 }
 
 p {
   @include sassline($fontsize: 14, $font: $bodytype, $lineheight: 2, $below: 1, $breakpoint: 0);
   font-weight: lighter;
-  color: $primcollor;
+  color: $primcolor;
 }
 
 em { font-style: italic; }
@@ -58,7 +58,7 @@ ol, ul {
     padding: 0;
     font-weight: lighter;
     margin-left: 1rem;
-    color: $primcollor;
+    color: $primcolor;
   }
 }
 
@@ -73,3 +73,22 @@ ul ul, ol ul {
   list-style-type: circle;
 }
 
+a {
+  @include sassline($fontsize: 14, $font: $bodytype, $lineheight: 2, $below: 0, $breakpoint: 0);
+
+  &:link {
+    @include gradient-border($color, transparent, 1px, 'bottom', 'reflected');
+    color: $primcolor;
+  } 
+
+  &:visited {
+    @include gradient-border($color, transparent, 1px, 'bottom', 'reflected');
+    color: $color;
+  }
+
+  &:hover,
+  &:active {
+    @include gradient-border($primcolor, transparent, 1px, 'bottom', 'reflected');
+    color: $primcolor;
+  }
+}
