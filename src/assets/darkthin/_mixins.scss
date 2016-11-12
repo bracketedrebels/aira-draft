@@ -1,0 +1,23 @@
+@mixin text-stroke($color, $width) {
+    text-shadow: 0 $width 0 $color, (0 - $width) $width 0 $color, $width $width 0 $color, 0 (0 - $width) 0 $color, (0 - $width) (0 - $width) 0 $color, $width (0 - $width) 0 $color, (0 - $width) 0 0 $color, $width 0 0 $color;
+}
+
+@mixin table-row-edges-rounding($radius) {
+    & {
+        th, td {
+            &:first-child {
+                border-radius: $radius 0 0 $radius;
+            }
+
+            &:last-child {
+                border-radius: 0 $radius $radius 0;
+            }
+        }
+    }
+}
+
+@mixin wrap-in-plate($color, $radius) {
+    @include prefixer(box-shadow, 0px 0px .2rem 0px rgba(0, 0, 0, .3), moz webkit o spec);
+    background-color: $color;
+    border-radius: $radius;
+}
