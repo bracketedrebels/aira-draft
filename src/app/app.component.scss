@@ -1,7 +1,8 @@
-@import 'src/assets/essentials';
+@import 'src/assets/darkthin';
 
 .container {
-    font-family: 'Open Sans Condensed', sans-serif;
+    @include typography;
+
     text-align: left;
     outline: none;
 }
