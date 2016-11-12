@@ -77,18 +77,26 @@ a {
   @include sassline($fontsize: 14, $font: $bodytype, $lineheight: 2, $below: 0, $breakpoint: 0);
 
   &:link {
-    @include gradient-border($color, transparent, 1px, 'bottom', 'reflected');
     color: $primcolor;
+    border-bottom: 1px solid $color;
   } 
 
   &:visited {
-    @include gradient-border($color, transparent, 1px, 'bottom', 'reflected');
     color: $color;
+    border-bottom: 1px solid $color;
   }
 
   &:hover,
   &:active {
-    @include gradient-border($primcolor, transparent, 1px, 'bottom', 'reflected');
     color: $primcolor;
+    border-bottom: 1px solid $primcolor;
   }
+}
+
+img {
+  @include prefixer(box-shadow, 0px 0px .2rem 0px rgba(0, 0, 0, .5), moz webkit o spec);
+  border-radius: .1rem;
+  margin: .2rem;
+  padding: .2rem;
+  background-color: fade-out($color: $primcolor, $amount: .5);
 }
