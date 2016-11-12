@@ -1,7 +1,6 @@
 @import 'variables';
 @import '~sassline/assets/sass/sassline-base';
 @import '~bourbon/app/assets/stylesheets/bourbon';
-@import 'gradient-border';
 @import 'mixins';
 
 
@@ -166,5 +165,11 @@
         }
       }
     }
+  }
+
+  blockquote {
+    @include gradient-border($codebgcolor, transparent, 3px, 'top', 'linear', 'after');
+    @include gradient-border(transparent, $codebgcolor, 3px, 'left');
+    padding: 0 0 1rem 1rem;
   }
 }}
