@@ -1,0 +1,8 @@
+@import 'src/assets/darkthin';
+
+.container {
+    @include typography;
+
+    text-align: left;
+    outline: none;
+}
