@@ -23,13 +23,13 @@
 
   h1 {
     @include sassline($fontsize: 28, $font: $bodytype, $lineheight: 2, $below: 2, $breakpoint: 0);
-    @include gradient-border($codebgcolor, transparent, 3px, 'bottom');
+    @include gradient-border(transparent, $codebgcolor, 3px, 'bottom');
     @include text-stroke($bgcolor, 2px);
   }
 
   h2 {
     @include sassline($fontsize: 25, $font: $bodytype, $lineheight: 2, $below: 2, $breakpoint: 0);
-    @include gradient-border($codebgcolor, transparent, 3px, 'bottom');
+    @include gradient-border(transparent, $codebgcolor, 3px, 'bottom');
     @include text-stroke($bgcolor, 2px);
   }
 
@@ -171,5 +171,20 @@
     @include gradient-border($codebgcolor, transparent, 3px, 'top', 'linear', 'after');
     @include gradient-border(transparent, $codebgcolor, 3px, 'left');
     padding: 0 0 1rem 1rem;
+  }
+
+  hr {
+    @include gradient-border(transparent, $primcolor, 3px, 'top', 'reflected') {
+      top: 2rem;
+    };
+
+    border: none;
+    padding: 2rem 0;
+    margin: 0;
+    color: $primcolor;
+    
+    &:after {
+      @include clearfix;
+    }
   }
 }}
