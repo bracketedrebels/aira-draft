@@ -10,13 +10,6 @@ import { CompleterDomain } from './components/completer';
   providers: [ CompleterDomain ]
 })
 export class AppComponent {
-  public processInput(aEvent: Event): void {
-    console.log(aEvent);
-  }
-
-  public handleKeyPress(aEvent: Event): void {
-    console.log(aEvent);
-  }
-
+  log(evt): void { console.log(evt); }
   constructor(private domain: CompleterDomain) {}
 }

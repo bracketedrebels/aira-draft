@@ -1,4 +1,7 @@
 <div class="container">
-    <p contenteditable="true" (input)="processInput($event)" (keypress)="handleKeyPress($event)"></p>
+    <p  (carettracker)="log($event)"
+        [carettracker]="{ track: { printables: true, backspace: true } }"
+        contenteditable="true">
+    </p>
     <airadraft-completer></airadraft-completer>
 </div>

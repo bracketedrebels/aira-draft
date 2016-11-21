@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CompleterComponent } from './components/completer';
+import { CarettrackerModule } from './modules/carettracker';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CompleterComponent } from './components/completer';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CarettrackerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
