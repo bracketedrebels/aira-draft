@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Output, EventEmitter,
+import { Directive, ElementRef, Output, EventEmitter,
          OnInit, OnDestroy, Input } from '@angular/core';
 import { Observable, Subscription } from 'rxjs/Rx';
 
@@ -17,7 +17,7 @@ export class CarettrackerDirective implements OnInit, OnDestroy {
   constructor( elemref: ElementRef ) { this.element = elemref.nativeElement; }
 
 
-  
+
   private element: HTMLElement;
   private tracker: HTMLSpanElement;
 
