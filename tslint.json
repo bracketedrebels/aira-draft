@@ -25,7 +25,7 @@
     "member-ordering": [
       true,
       "static-before-instance",
-      "variables-before-functions"
+      "public-before-private"
     ],
     "no-arg": true,
     "no-bitwise": true,
@@ -93,8 +93,8 @@
       "check-type"
     ],
 
-    "directive-selector-prefix": [true, "app"],
-    "component-selector-prefix": [true, "app"],
+    "directive-selector-prefix": [true, "aira"],
+    "component-selector-prefix": [true, "aira"],
     "directive-selector-name": [true, "kebab-case"],
     "component-selector-name": [true, "kebab-case"],
     "directive-selector-type": [true, "attribute"],
