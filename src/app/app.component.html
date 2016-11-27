@@ -1,7 +1,8 @@
 <div class="container">
-    <p  (carettracker)="log($event)"
+    <p  (keypress)="filtrate($event)"
+        (carettracker)="updateCompleterPosition($event)"
         [carettracker]="{ track: { printables: true, backspace: true } }"
         contenteditable="true">
     </p>
-    <airadraft-completer></airadraft-completer>
+    <aira-completer [ngStyle]="completerStyle"></aira-completer>
 </div>
