@@ -101,8 +101,6 @@ export class CarettrackerDirective implements OnInit, OnDestroy {
   private createTracker(): HTMLSpanElement {
     let lTracker = document.createElement('span');
     lTracker.style.visibility = 'hidden !important';
-    lTracker.style.height = '0 !important';
-    lTracker.style.width = '0 !important';
     return this.tracker = lTracker;
   }
 
