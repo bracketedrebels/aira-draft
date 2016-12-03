@@ -5,4 +5,14 @@
 
     text-align: left;
     outline: none;
+
+    aira-completer {
+        ul {
+            list-style-type: none;
+            
+            > li > span {
+                text-decoration: underline;
+            }
+        }
+    }
 }

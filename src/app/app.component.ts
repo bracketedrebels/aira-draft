@@ -27,7 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.subscriptionOnSuggestionsUpdated = this.domain.onSuggestionsUpdated.subscribe( sugs =>
-      this.completerStyle = Object.assign({}, this.completerStyle, { display: sugs.length ? 'block' : 'none' }));
+      this.completerStyle = Object.assign({}, this.completerStyle, { display: sugs.suggestions.length ? 'block' : 'none' }));
   }
 
   public ngOnDestroy(): void {
