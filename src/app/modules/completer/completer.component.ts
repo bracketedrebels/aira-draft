@@ -10,12 +10,16 @@ import { CompleterDomain } from './completer.domain';
 })
 export class CompleterComponent implements OnInit, OnDestroy {
   public suggestions: string[] = [];
+  public criterion: RegExp;
 
   constructor(private domain: CompleterDomain) { }
 
   public ngOnInit(): void {
     this.subscriptionOnSuggestionsUpdated = this.domain.onSuggestionsUpdated
-        .subscribe( value => this.suggestions = value );
+        .subscribe( value => {
+          this.suggestions = value.suggestions;
+          this.criterion = value.filter;
+        } );
   }
 
   public ngOnDestroy(): void {

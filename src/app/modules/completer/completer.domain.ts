@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs/Rx';
 
+import { SuggestionsFiltrationDescription } from './completer.domain.interfaces';
+
 @Injectable()
 export class CompleterDomain {
     public set  suggestions(aValue: string[]) { this.updateSuggestionsList(aValue); }
     public      filtrate(aCriterion: string) { this.filtrateSuggestionsList(aCriterion); }
 
-    public onSuggestionsUpdated: Observable<string[]>;
+    public onSuggestionsUpdated: Observable<SuggestionsFiltrationDescription>;
 
     constructor() {
         this.onSuggestionsUpdated = this.subjectSuggestionsUpdated
         .asObservable()
-        .filter( value => !!value )
-        .map( value => value.filter( variant => this.filter ? this.filter.test(variant) : true ) )
+        .filter( value => !!value.suggestions )
+        .map( value => ({
+            suggestions: value.suggestions.filter( variant => value.filter ? value.filter.test(variant) : true ),
+            filter: value.filter
+        }) );
     }
 
 
@@ -20,16 +25,24 @@ export class CompleterDomain {
     private suggestionsList: string[];
     private filter: RegExp;
 
-    private subjectSuggestionsUpdated: BehaviorSubject<string[]> = new BehaviorSubject([]);
+    private subjectSuggestionsUpdated: BehaviorSubject<SuggestionsFiltrationDescription> = new BehaviorSubject({
+        suggestions: [],
+        filter: null
+    });
 
     private updateSuggestionsList(aValue: string[]): void {
         this.suggestionsList = aValue;
-        this.subjectSuggestionsUpdated.next(aValue);
+        this.subjectSuggestionsUpdated.next({
+            suggestions: aValue,
+            filter: null
+        });
     }
 
     private filtrateSuggestionsList(aCriterion: string): void {
-        console.log(aCriterion);
-        this.filter = new RegExp(`^.*?${aCriterion}.*?$`);
-        this.subjectSuggestionsUpdated.next(this.suggestionsList);
+        let lFilter = new RegExp(`(^.*?)(${aCriterion.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')})(.*?$)`);
+        this.subjectSuggestionsUpdated.next({
+            suggestions: this.suggestionsList,
+            filter: lFilter
+        });
     }
 }
